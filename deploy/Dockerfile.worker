@@ -1,0 +1,10 @@
+FROM shared-base:latest
+
+# Копируем код воркера
+COPY workers/ads_worker ./workers/ads_worker
+
+# Устанавливаем зависимости воркера
+RUN uv sync --package ads-worker --no-dev --frozen
+
+# Команда запуска
+CMD ["uv", "run", "--package", "ads-worker", "python", "-m", "ads_worker.app.main"]

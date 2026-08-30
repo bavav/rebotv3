@@ -1,0 +1,12 @@
+[project]
+name = "gateway"
+version = "0.1.0"
+description = "Long polling gateway"
+requires-python = ">=3.14"
+dependencies = [
+    "aiogram>=3.4",
+    "shared",
+]
+
+[tool.uv.sources]
+shared = { workspace = true }

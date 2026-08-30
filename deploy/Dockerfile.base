@@ -1,0 +1,18 @@
+FROM python:3.14-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+# Установка uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
+
+WORKDIR /app
+
+# Копируем workspace-файлы
+COPY pyproject.toml uv.lock ./
+COPY shared ./shared
+
+# Устанавливаем зависимости только для shared (можно и все, но для экономии только shared)
+RUN uv sync --package shared --no-dev --frozen
+
+# Базовый образ не содержит кода сервисов, они будут добавлены в дочерних образах

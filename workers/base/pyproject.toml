@@ -1,0 +1,12 @@
+[project]
+name = "workers"
+version = "0.1.0"
+description = "Base workers class"
+requires-python = ">=3.14"
+dependencies = [
+    "aiogram>=3.4",
+    "shared",
+]
+
+[tool.uv.sources]
+shared = { workspace = true }

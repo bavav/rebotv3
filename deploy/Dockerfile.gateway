@@ -1,0 +1,10 @@
+FROM shared-base:latest
+
+# Копируем код gateway
+COPY gateway ./gateway
+
+# Устанавливаем зависимости gateway (shared уже установлен)
+RUN uv sync --package gateway --no-dev --frozen
+
+# Команда запуска
+CMD ["uv", "run", "--package", "gateway", "python", "-m", "gateway.app.main"]

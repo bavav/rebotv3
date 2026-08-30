@@ -1,0 +1,22 @@
+[project]
+name = "telegram-bots-platform"
+version = "0.1.0"
+requires-python = ">=3.14"
+
+[tool.uv.workspace]
+members = [
+    "shared",
+    "gateway",
+    "workers/base",  
+    "workers/ads_worker",
+    "webui/backend",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.4",
+    "pytest-asyncio>=0.21",
+    "ruff>=0.1",
+    "black>=23.9",
+    "pre-commit>=3.4",
+]
