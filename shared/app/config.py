@@ -5,6 +5,7 @@ class Settings(BaseSettings):
 
     # Инфраструктура
     rabbitmq_url: str = "amqp://admin:admin123@rabbitmq:5672/"
+    rabbitmq_exchange: str = "bot_events"   # имя fanout exchange
     log_level: str = "INFO"
 
     # Telegram

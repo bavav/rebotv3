@@ -17,3 +17,6 @@ dist/
 
 # Прочее
 *.log
+*.bin
+*.pkl
+*.sqlite3
